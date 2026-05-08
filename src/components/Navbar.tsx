@@ -39,7 +39,7 @@ export default function Navbar() {
             <img 
               src="/policymate-logo.png" 
               alt="PolicyMate" 
-              className="h-12 md:h-15 w-auto"
+              className="h-18 md:h-20 w-auto"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
