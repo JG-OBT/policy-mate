@@ -17,7 +17,7 @@ export default function Footer({ onOpenPrivacy, onOpenCookies }: FooterProps) {
                <img 
                 src="/policymate-logo.png" 
                 alt="PolicyMate" 
-                className="h-8 w-auto"
+                className="h-12 w-auto"
                 onError={(e) => {
                   (e.target as HTMLImageElement).style.display = 'none';
                   const parent = (e.target as HTMLImageElement).parentElement;
