@@ -1,7 +1,7 @@
 import { Document, PricingTier } from './types';
 
 // TOGGLE THIS TO SHOW/HIDE PRICING
-export const SHOW_PRICING_SECTION = false; 
+export const SHOW_PRICING_SECTION = true; 
 
 export const DOCUMENTS: Document[] = [
   { id: '1', title: 'Employee Code of Conduct', path: '/documents/employee-code-of-conduct.pdf' },
