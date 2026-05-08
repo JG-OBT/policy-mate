@@ -28,57 +28,42 @@ export const DOCUMENTS: Document[] = [
 
 export const PRICING_TIERS: PricingTier[] = [
   {
-    id: 'beginner',
-    name: 'Beginner',
-    price: '£49',
-    description: 'Perfect for small startups getting started with policy management.',
+    id: 'starter',
+    name: 'Starter',
+    price: '£59 / month + £39 per site',
+    description: 'Perfect for small operators and independants.',
     features: [
-      'Up to 20 policy documents',
-      'Basic document viewer',
-      'Standard contact form',
+      'Up to 10 sites',
+      'Up to 5,000 queries/mo'
       'Email support'
     ],
     cta: 'Get Started'
   },
   {
-    id: 'intermediate',
-    name: 'Intermediate',
-    price: '£99',
-    description: 'Ideal for growing teams that need a more professional portal.',
+    id: 'growth',
+    name: 'Growth',
+    price: '£99 / month + £49 per site',
+    description: 'Ideal for multi-site chains and regional operators.',
     features: [
-      'Up to 50 policy documents',
-      'Branded document portal',
-      'Searchable policy library',
-      'Basic analytics'
+      '10-50 sites',
+      'Up to 20,000 queries/mo',
+      'Priority Support',
     ],
-    cta: 'Go Intermediate',
+    cta: 'Go Growth',
     highlight: true
   },
-  {
-    id: 'advanced',
-    name: 'Advanced',
-    price: '£199',
-    description: 'Comprehensive features for businesses with complex compliance needs.',
-    features: [
-      'Unlimited policy documents',
-      'Custom workflows',
-      'User access controls',
-      'Priority support',
-      'Policy review reminders'
-    ],
-    cta: 'Go Advanced'
-  },
+ 
   {
     id: 'enterprise',
     name: 'Enterprise',
     price: 'Custom',
-    description: 'Bespoke solutions for multi-site global organizations.',
+    description: 'Bespoke solutions for national chains and large groups.',
     features: [
-      'Multi-site organisation support',
-      'Bespoke implementation',
-      'Advanced reporting',
-      'SSO-ready structure',
-      'Dedicated account support'
+      '50+ sites',
+      'Unlimited queries',
+      'Dedicated account manager',
+      'Advanced reporting and analytics',
+      'Optimised policy handling'
     ],
     cta: 'Contact Sales'
   }
