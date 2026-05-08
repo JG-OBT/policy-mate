@@ -49,7 +49,7 @@ export function LegalModal({ isOpen, onClose, title, content }: LegalModalProps)
 
 export const PrivacyContent = () => (
   <>
-    <p>Last Updated: May 2024</p>
+    <p>Last Updated: May 2026</p>
     <section>
       <h4 className="font-bold text-pm-navy mb-2">1. Information We Collect</h4>
       <p>We collect information you provide directly to us when you request information through our contact forms, such as your name, email address, and company details.</p>
@@ -71,7 +71,7 @@ export const PrivacyContent = () => (
 
 export const CookieContent = () => (
   <>
-    <p>Last Updated: May 2024</p>
+    <p>Last Updated: May 2026</p>
     <section>
       <h4 className="font-bold text-pm-navy mb-2">1. What are Cookies?</h4>
       <p>Cookies are small text files that are stored on your device when you visit a website. They help the website remember your preferences and improve your experience.</p>
