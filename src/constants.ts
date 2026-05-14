@@ -150,4 +150,4 @@ export const PRICING_TIERS: PricingTier[] = [
 ];
 
 export const VIDEO_URL =
-  'https://www.youtube.com/embed/dQw4w9WgXcQ'; // Placeholder video URL
+  'https://www.youtube.com/watch?v=mOvX2ptAGPg'; // video URL
