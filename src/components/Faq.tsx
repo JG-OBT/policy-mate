@@ -49,6 +49,10 @@ const FaqItem: React.FC<FaqItemProps> = ({ question, answer }) => {
 export default function Faq() {
   const faqs = [
     {
+      question: "These are just example questions, swap them out?",
+      answer: "Use the ones in OneNote"
+    },
+    {
       question: "How does PolicyMate ensure the accuracy of the AI-generated answers?",
       answer: "PolicyMate uses a Retrieval-Augmented Generation (RAG) approach, meaning it only looks at your specific company documents to formulate answers. It provides direct citations to the source document, ensuring every answer is verifiable and 100% accurate to your policy."
     },
