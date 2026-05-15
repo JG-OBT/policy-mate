@@ -12,7 +12,7 @@ export async function onRequestPost(context: any) {
       },
       body: JSON.stringify({
         from: "PolicyMate <onboarding@resend.dev>",
-        to: ["jack@onebigtick.co.uk"],
+        to: ["jal.gilbertson@gmail.com"],
         subject: "New PolicyMate Enquiry",
         html: `
           <h2>New Enquiry</h2>
