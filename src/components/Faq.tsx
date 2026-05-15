@@ -50,7 +50,7 @@ export default function Faq() {
   const faqs = [
     {
       question: "What happens if I ask something that isn't covered in the policies?",
-      answer: "PolicyMate will tell you clearly that it couldn't find an answer in your uploaded documents, and recommend speaking directly with HR. It will never guess, invent an answer, or draw on outside knowledge. Every response is either grounded in your policies or an honest "I don't know" - that's by design."
+      answer: "PolicyMate will tell you clearly that it couldn't find an answer in your uploaded documents, and recommend speaking directly with HR. It will never guess, invent an answer, or draw on outside knowledge. Every response is either grounded in your policies or an honest \"I don't know\" - that's by design."
     },
     {
       question: "How does PolicyMate make sure answers are accurate?",
