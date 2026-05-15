@@ -5,17 +5,26 @@ import { CheckCircle2 } from 'lucide-react';
 export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    message: '',
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
-      const formData = {
-        name: "Website Visitor",
-        email: "unknown@example.com",
-        company: "",
-        message: "New enquiry submitted from PolicyMate website."
-      };
-
       const response = await fetch("/contact", {
         method: "POST",
         headers: {
@@ -31,6 +40,14 @@ export default function Contact() {
       }
 
       setIsSubmitted(true);
+
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        message: '',
+      });
+
       setTimeout(() => setIsSubmitted(false), 5000);
 
     } catch (error) {
@@ -43,10 +60,12 @@ export default function Contact() {
     <section id="contact" className="py-24 px-4 md:px-8">
       <div className="max-w-4xl mx-auto bg-pm-navy rounded-[32px] p-8 md:p-12 text-white overflow-hidden relative shadow-2xl">
         <div className="relative z-10 flex flex-col md:flex-row gap-12">
+
           <div className="md:w-1/2">
             <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight tracking-tight">
               Ready to save your managers hours of frustration?
             </h2>
+
             <p className="text-slate-400 text-sm font-light mb-8 leading-relaxed">
               Request a personalised demonstration and see how PolicyMate ensures absolute policy precision across your entire organisation.
             </p>
@@ -56,10 +75,12 @@ export default function Contact() {
                 <CheckCircle2 className="text-pm-blue" size={16} />
                 <span>Zero-friction search setup</span>
               </div>
+
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="text-pm-blue" size={16} />
                 <span>Instant compliance auditing</span>
               </div>
+
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="text-pm-blue" size={16} />
                 <span>Natural language policy indexing</span>
@@ -77,47 +98,72 @@ export default function Contact() {
                 <div className="w-12 h-12 bg-pm-blue rounded-full mb-6 flex items-center justify-center">
                   <CheckCircle2 size={24} />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Message Sent</h3>
+
+                <h3 className="text-xl font-bold mb-2">
+                  Message Sent
+                </h3>
+
                 <p className="text-sm text-slate-400">
                   Thank you for your interest. A member of our team will be in touch shortly.
                 </p>
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+
                 <input
                   required
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Full Name"
                   className="w-full bg-slate-800 border-none rounded-lg p-3 text-xs text-white placeholder:text-slate-500 focus:ring-1 focus:ring-pm-blue outline-none transition-all"
                 />
+
                 <div className="flex gap-2">
+
                   <input
                     required
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder="Email Address"
                     className="flex-1 bg-slate-800 border-none rounded-lg p-3 text-xs text-white placeholder:text-slate-500 focus:ring-1 focus:ring-pm-blue outline-none transition-all"
                   />
+
                   <input
                     required
                     type="text"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
                     placeholder="Company Name"
                     className="flex-1 bg-slate-800 border-none rounded-lg p-3 text-xs text-white placeholder:text-slate-500 focus:ring-1 focus:ring-pm-blue outline-none transition-all"
                   />
+
                 </div>
+
                 <textarea
                   rows={3}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Message (Optional)"
                   className="w-full bg-slate-800 border-none rounded-lg p-3 text-xs text-white placeholder:text-slate-500 focus:ring-1 focus:ring-pm-blue outline-none transition-all resize-none"
                 ></textarea>
+
                 <button
                   type="submit"
                   className="w-full bg-pm-orange hover:bg-orange-600 py-3 rounded-lg text-xs font-bold transition-colors active:scale-[0.98] shadow-lg shadow-pm-orange/20"
                 >
                   Request More Information
                 </button>
+
               </form>
             )}
           </div>
+
         </div>
       </div>
     </section>
