@@ -60,8 +60,6 @@ export default function Footer({ onOpenPrivacy, onOpenCookies }: FooterProps) {
             <ul className="space-y-4 text-xs text-slate-500 font-medium">
               <li><button onClick={onOpenPrivacy} className="hover:text-pm-blue transition-colors cursor-pointer text-left">Privacy Policy</button></li>
               <li><button onClick={onOpenCookies} className="hover:text-pm-blue transition-colors cursor-pointer text-left">Cookie Policy</button></li>
-              <li><a href="#" className="hover:text-pm-blue transition-colors">Terms of Use</a></li>
-              <li><a href="#contact" className="hover:text-pm-blue transition-colors">Compliance</a></li>
             </ul>
           </div>
 
