@@ -70,7 +70,7 @@ export default function Footer({ onOpenPrivacy, onOpenCookies }: FooterProps) {
             <ul className="space-y-4 text-xs text-slate-500 font-medium">
               <li className="flex flex-col">
                 <span className="text-[10px] uppercase tracking-widest text-slate-300 mb-1">Email us</span>
-                <a href="mailto:info@policymate.com" className="text-slate-600 hover:text-pm-blue transition-colors">info@policymate.com</a>
+                <a href="mailto:info@policymate.com" className="text-slate-600 hover:text-pm-blue transition-colors">info@policy-mate.co.uk</a>
               </li>
             </ul>
           </div>
