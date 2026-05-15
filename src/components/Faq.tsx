@@ -49,25 +49,21 @@ const FaqItem: React.FC<FaqItemProps> = ({ question, answer }) => {
 export default function Faq() {
   const faqs = [
     {
-      question: "These are just example questions, swap them out?",
-      answer: "Use the ones in OneNote"
+      question: "What happens if I ask something that isn't covered in the policies?",
+      answer: "PolicyMate will tell you clearly that it couldn't find an answer in your uploaded documents, and recommend speaking directly with HR. It will never guess, invent an answer, or draw on outside knowledge. Every response is either grounded in your policies or an honest "I don't know" - that's by design."
     },
     {
-      question: "How does PolicyMate ensure the accuracy of the AI-generated answers?",
-      answer: "PolicyMate uses a Retrieval-Augmented Generation (RAG) approach, meaning it only looks at your specific company documents to formulate answers. It provides direct citations to the source document, ensuring every answer is verifiable and 100% accurate to your policy."
+      question: "How does PolicyMate make sure answers are accurate?",
+      answer: "Every answer is pulled directly from your uploaded policy documents, with the exact source and section cited. You can click any quoted passage to see it highlighted in the original document. There's no AI guesswork - if it's not in your policies, it won't be in the answer."
     },
     {
-      question: "Is our company data secure with PolicyMate?",
-      answer: "Absolutely. We use enterprise-grade encryption and isolated data environments for every client. Your documents are never used to train global AI models, and access is strictly controlled via your existing identity provider."
+      question: "Is our company's data kept private and secure?",
+      answer: "Yes. Each company gets a completely isolated environment - your documents are never shared with or visible to any other organisation. PolicyMate is built on Supabase, which is SOC 2 Type 2 certified and GDPR compliant. Your policies stay yours."
     },
     {
-      question: "How long does it take to get PolicyMate up and running?",
-      answer: "Most organisations can be live within 24-48 hours. Once you upload your documents, our AI indexes them almost instantly, and your team can start asking questions right away."
+      question: "Who is this for — HR or managers?",
+      answer: "Both, but it's designed to be used by site managers and team leaders who need quick, reliable policy answers without escalating to HR every time. HR teams upload and manage the documents. Managers ask the questions. HR gets their time back."
     },
-    {
-      question: "Can PolicyMate handle complex, multi-document policy queries?",
-      answer: "Yes. PolicyMate identifies relevant information across multiple documents (e.g., cross-referencing your Leave Policy with your Parent Policy) to provide comprehensive, nuanced answers to complex employee scenarios."
-    }
   ];
 
   return (
