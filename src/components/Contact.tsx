@@ -1,44 +1,43 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Send, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    const formData = {
-      name: "Website Visitor",
-      email: "unknown@example.com",
-      company: "",
-      message: "New enquiry submitted from PolicyMate website."
-    };
+    try {
+      const formData = {
+        name: "Website Visitor",
+        email: "unknown@example.com",
+        company: "",
+        message: "New enquiry submitted from PolicyMate website."
+      };
 
-    const response = await fetch("/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+      const response = await fetch("/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    iif (!response.ok) {
-  const errorText = await response.text();
-  alert(`Failed: ${response.status} ${errorText}`);
-  return;
-}
+      if (!response.ok) {
+        const errorText = await response.text();
+        alert(`Failed: ${response.status} ${errorText}`);
+        return;
+      }
+
+      setIsSubmitted(true);
+      setTimeout(() => setIsSubmitted(false), 5000);
+
+    } catch (error) {
+      console.error(error);
+      alert("Failed to send message.");
     }
-
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000);
-
-  } catch (error) {
-    console.error(error);
-    alert("Failed to send message.");
-  }
-};
+  };
 
   return (
     <section id="contact" className="py-24 px-4 md:px-8">
@@ -51,7 +50,7 @@ export default function Contact() {
             <p className="text-slate-400 text-sm font-light mb-8 leading-relaxed">
               Request a personalised demonstration and see how PolicyMate ensures absolute policy precision across your entire organisation.
             </p>
-            
+
             <div className="flex flex-col gap-4 text-xs text-white/50 font-medium">
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="text-pm-blue" size={16} />
@@ -70,7 +69,7 @@ export default function Contact() {
 
           <div className="md:w-1/2">
             {isSubmitted ? (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="h-full flex flex-col items-center justify-center text-center p-8 bg-white/5 rounded-2xl border border-white/10"
@@ -85,32 +84,32 @@ export default function Contact() {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                <input 
+                <input
                   required
-                  type="text" 
+                  type="text"
                   placeholder="Full Name"
                   className="w-full bg-slate-800 border-none rounded-lg p-3 text-xs text-white placeholder:text-slate-500 focus:ring-1 focus:ring-pm-blue outline-none transition-all"
                 />
                 <div className="flex gap-2">
-                  <input 
+                  <input
                     required
-                    type="email" 
+                    type="email"
                     placeholder="Email Address"
                     className="flex-1 bg-slate-800 border-none rounded-lg p-3 text-xs text-white placeholder:text-slate-500 focus:ring-1 focus:ring-pm-blue outline-none transition-all"
                   />
-                  <input 
+                  <input
                     required
-                    type="text" 
+                    type="text"
                     placeholder="Company Name"
                     className="flex-1 bg-slate-800 border-none rounded-lg p-3 text-xs text-white placeholder:text-slate-500 focus:ring-1 focus:ring-pm-blue outline-none transition-all"
                   />
                 </div>
-                <textarea 
+                <textarea
                   rows={3}
                   placeholder="Message (Optional)"
                   className="w-full bg-slate-800 border-none rounded-lg p-3 text-xs text-white placeholder:text-slate-500 focus:ring-1 focus:ring-pm-blue outline-none transition-all resize-none"
                 ></textarea>
-                <button 
+                <button
                   type="submit"
                   className="w-full bg-pm-orange hover:bg-orange-600 py-3 rounded-lg text-xs font-bold transition-colors active:scale-[0.98] shadow-lg shadow-pm-orange/20"
                 >
