@@ -24,8 +24,11 @@ export default function Contact() {
       body: JSON.stringify(formData),
     });
 
-    if (!response.ok) {
-      throw new Error("Failed");
+    iif (!response.ok) {
+  const errorText = await response.text();
+  alert(`Failed: ${response.status} ${errorText}`);
+  return;
+}
     }
 
     setIsSubmitted(true);
