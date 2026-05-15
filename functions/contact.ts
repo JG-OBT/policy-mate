@@ -12,40 +12,36 @@ export async function onRequestPost(context: any) {
       },
       body: JSON.stringify({
         from: "PolicyMate <onboarding@resend.dev>",
-        to: ["info@policy-mate.co.uk"],
+        to: ["jack@onebigtick.co.uk"],
         subject: "New PolicyMate Enquiry",
         html: `
           <h2>New Enquiry</h2>
-
           <p><strong>Name:</strong> ${name}</p>
-
           <p><strong>Email:</strong> ${email}</p>
-
           <p><strong>Company:</strong> ${company || "Not provided"}</p>
-
           <p><strong>Message:</strong></p>
-
           <p>${message}</p>
         `,
       }),
     });
 
-    const data = await response.json();
+    const data = await response.text();
 
-    return new Response(JSON.stringify(data), {
+    if (!response.ok) {
+      return new Response(data, {
+        status: response.status,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    return new Response(data, {
       status: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
     });
   } catch (err) {
     return new Response(
-      JSON.stringify({
-        error: "Failed to send email",
-      }),
-      {
-        status: 500,
-      }
+      JSON.stringify({ error: "Function crashed before reaching Resend" }),
+      { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }
 }
