@@ -5,15 +5,37 @@ import { Send, CheckCircle2 } from 'lucide-react';
 export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    /**
-     * Placeholder submit action.
-     * In a production app, you would add your API endpoint logic here.
-     */
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    const formData = {
+      name: "Website Visitor",
+      email: "unknown@example.com",
+      company: "",
+      message: "New enquiry submitted from PolicyMate website."
+    };
+
+    const response = await fetch("/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed");
+    }
+
     setIsSubmitted(true);
     setTimeout(() => setIsSubmitted(false), 5000);
-  };
+
+  } catch (error) {
+    console.error(error);
+    alert("Failed to send message.");
+  }
+};
 
   return (
     <section id="contact" className="py-24 px-4 md:px-8">
