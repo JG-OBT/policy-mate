@@ -13,7 +13,6 @@ export async function onRequestPost(context: any) {
       body: JSON.stringify({
         from: "PolicyMate <onboarding@resend.dev>",
         to: ["info@policy-mate.co.uk"],
-        cc: ["jack@onebigtick.co.uk"],
         subject: "New PolicyMate Enquiry",
         html: `
           <h2>New Enquiry</h2>
